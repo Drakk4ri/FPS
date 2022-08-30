@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - ObjectToDestroy
+  - BigBullet
+  - MediumBullet
+  - SmallBullet
+  - Glass
+  - Wood
+  - Metal
+  - Plastic
+  - Cement
+  - UISystem
+  - Gun
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - smolGun
+  - mediumGun
+  - bigGun
+  - ground
+  - player
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: smolGun
+    uniqueID: 3530970669
+    locked: 0
+  - name: mediumGun
+    uniqueID: 3937421309
+    locked: 0
+  - name: bigGun
+    uniqueID: 4090169917
+    locked: 0
+  - name: ground
+    uniqueID: 131644875
+    locked: 0
