@@ -7,7 +7,6 @@ public class Bullet : MonoBehaviour
 
     [Header("Settings")]
     public float lifetime = 1;
-    //public float bulletSpeed;
 
     private void Awake()
     {

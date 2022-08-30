@@ -3,9 +3,7 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
 
-
     [Header("References")]
-
     public UIManager uiManager;
 
     [Header("Shooting")]
@@ -15,19 +13,12 @@ public class WeaponController : MonoBehaviour
     [Header("Changing guns")]
     public int weaponIndicator;
     public GameObject[] weapons = new GameObject[3];
-    
-    
-    private void Update()
-    {
-        //CalculateShoooting();
-    }
-
+ 
 
     private void Start()
     {
         uiManager = GameObject.FindGameObjectWithTag("UISystem").GetComponent<UIManager>();
         uiManager.setWeapon(0);
-
 
         switchWeapons(0);
     }
@@ -36,10 +27,6 @@ public class WeaponController : MonoBehaviour
     {
         activeGun[weaponIndicator].shoot();
 
-        //if (isShooting)
-        //{
-        //    activeGun[weaponIndicator].shoot();
-        //}
     }
 
     public void switchWeapons(int index)

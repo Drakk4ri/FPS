@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -12,57 +9,19 @@ public class Gun : MonoBehaviour
     [Header("References")]
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
-
+    [SerializeField] AudioSource bulletSound;
 
     public void shoot()
     {
         var bullet = Instantiate(bulletPrefab, bulletSpawn);
-        Debug.Log("shoot");
-
         bullet.GetComponent<Rigidbody>().velocity = muzzle.forward * bulletSpeed;
-            //velocity = transform.TransformDirection(Vector3(0, 0, bulletSpeed));
-
+        
         OnGunShoot();
-
     }
 
     private void OnGunShoot()
     {
-        // na póŸniej do wykonywania efektów po strzale
+        bulletSound.Play();
     }
 
-
-
-
-
-    //private void Start()
-    //{
-    //    PlayerShoot.OnShootInput += Shoot;
-    //}
-
-
-    //public void Shoot()
-    //{
-    //    if (Physics.Raycast(muzzle.position, muzzle.forward, out RaycastHit hitInfo, gunData.maxDistance))
-    //    {
-    //        Debug.Log("hit");
-    //    }
-
-    //    OnGunShoot();
-    //}
-
-    //private void OnGunShoot()
-    //{
-    //    // na póŸniej do wykonywania efektów po strzale
-    //}
-
-
-
-
-
-    //if (Physics.Raycast(muzzle.position, muzzle.forward, out RaycastHit hitInfo, gunData.maxDistance))
-    //{
-    //    var bullet = Instantiate(bulletPrefab, bulletSpawn);
-    //    Debug.Log("hit");
-    //}
 }

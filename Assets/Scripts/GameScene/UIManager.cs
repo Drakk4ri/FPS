@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
 
     public GameObject[] weaponIndicator = new GameObject[3];
-
 
     private void Start()
     {
@@ -15,7 +12,6 @@ public class UIManager : MonoBehaviour
             weaponIndicator[i].SetActive(false);
         }
     }
-
 
     public void setWeapon(int e)
     {
@@ -28,5 +24,4 @@ public class UIManager : MonoBehaviour
             if (i == e) weaponIndicator[i].SetActive(true);
         }
     }
-
 }

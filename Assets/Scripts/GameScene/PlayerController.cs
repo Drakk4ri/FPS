@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using static Models;
 
@@ -23,16 +21,12 @@ public class PlayerController : MonoBehaviour
     public float viewClampYmin = -70;
     public float viewClampYmax = 90;
 
-    
-
-    
 
     private void Awake()
     {
         defaultInput = new DefaultInput();
         defaultInput.Player.Movement.performed += e => input_Movement = e.ReadValue<Vector2>();
         defaultInput.Player.View.performed += e => input_View = e.ReadValue<Vector2>();
-
 
         defaultInput.Weapon.fire.performed += e => Shooting();
 
@@ -45,6 +39,7 @@ public class PlayerController : MonoBehaviour
 
         characterController = GetComponent<CharacterController>();
 
+        Cursor.visible = false;
     }
 
    
@@ -54,13 +49,20 @@ public class PlayerController : MonoBehaviour
         CalculateMovement();
     }
 
+    private void OnEnable()
+    {
+        ObjectToDestroy.OnObjectDestroyed += EventTest;
+    }
+
+    private void OnDisable()
+    {
+        ObjectToDestroy.OnObjectDestroyed -= EventTest;
+    }
+
     private void Shooting()
     {
         weaponController.CalculateShoooting();
     }
-
-
-    #region Changing Weapon
 
 
     public void ChangeToNextWeapon()
@@ -68,8 +70,6 @@ public class PlayerController : MonoBehaviour
         weaponController.switchWeapons((weaponController.weaponIndicator < 2) ? weaponController.weaponIndicator + 1 : 0);
     }
 
-
-    #endregion
 
     private void CalculateView()
     {
@@ -92,5 +92,10 @@ public class PlayerController : MonoBehaviour
         newMovementSpeed = transform.TransformDirection(newMovementSpeed);
 
         characterController.Move(newMovementSpeed);
+    }
+
+    private void EventTest()
+    {
+        Debug.Log("EventTest");
     }
 }
